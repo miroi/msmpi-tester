@@ -1,7 +1,0 @@
-if(NOT DEFINED ENV{FCFLAGS})
-    if(CMAKE_Fortran_COMPILER_ID MATCHES PGI)
-        set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS}")
-        set(CMAKE_Fortran_FLAGS_RELEASE "-O3")
-        set(CMAKE_Fortran_FLAGS_DEBUG "-g")
-    endif()
-endif()
