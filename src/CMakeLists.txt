@@ -1,6 +1,11 @@
 if(MPI_FOUND)
     add_executable(example example.F90)
-    target_link_libraries(example ${MPI_LIBRARIES})
+    if (CMAKE_SYSTEM_NAME MATCHES "Windows")
+        # respect paths in appveyor.yml
+        target_link_libraries(example "C:/software/msmpi/libmsmpi64.a")
+    else()
+        target_link_libraries(example ${MPI_LIBRARIES})
+    endif()
 else()
     message(FATAL_ERROR "MPI not found")
 endif()
