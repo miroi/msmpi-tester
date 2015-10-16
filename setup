@@ -21,6 +21,7 @@ Usage:
 Options:
   --fc=<FC>                              Fortran compiler [default: gfortran].
   --extra-fc-flags=<EXTRA_FCFLAGS>       Extra Fortran compiler flags [default: ''].
+  --mpi                                  Enable MPI parallelization [default: False].
   --cc=<CC>                              C compiler [default: gcc].
   --extra-cc-flags=<EXTRA_CFLAGS>        Extra C compiler flags [default: ''].
   --cxx=<CXX>                            C++ compiler [default: g++].
@@ -47,6 +48,7 @@ def gen_cmake_command(options, arguments):
     command.append('CXX={0}'.format(arguments['--cxx']))
     command.append('%s' % arguments['--cmake-executable'])
     command.append('-DEXTRA_FCFLAGS="{0}"'.format(arguments['--extra-fc-flags']))
+    command.append('-DENABLE_MPI=%s' % arguments['--mpi'])
     command.append('-DEXTRA_CFLAGS="{0}"'.format(arguments['--extra-cc-flags']))
     command.append('-DEXTRA_CXXFLAGS="{0}"'.format(arguments['--extra-cxx-flags']))
     command.append('-DENABLE_64BIT_INTEGERS=%s' % arguments['--int64'])
