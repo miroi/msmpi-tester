@@ -22,7 +22,6 @@ Options:
   --fc=<FC>                              Fortran compiler [default: gfortran].
   --extra-fc-flags=<EXTRA_FCFLAGS>       Extra Fortran compiler flags [default: ''].
   --mpi                                  Enable MPI parallelization [default: False].
-  --coverage                             Enable code coverage [default: False].
   --add-definitions=<STRING>             Add preprocesor definitions [default: ''].
   --type=<TYPE>                          Set the CMake build type (debug, release, or relwithdeb) [default: release].
   --generator=<STRING>                   Set the CMake build system generator [default: Unix Makefiles].
@@ -43,7 +42,6 @@ def gen_cmake_command(options, arguments):
     command.append('%s' % arguments['--cmake-executable'])
     command.append('-DEXTRA_FCFLAGS="{0}"'.format(arguments['--extra-fc-flags']))
     command.append('-DENABLE_MPI=%s' % arguments['--mpi'])
-    command.append('-DENABLE_CODE_COVERAGE=%s' % arguments['--coverage'])
     command.append('-DPREPROCESSOR_DEFINITIONS="%s"' % arguments['--add-definitions'])
     command.append('-DCMAKE_BUILD_TYPE=%s' % arguments['--type'])
     command.append('-G "%s"' % arguments['--generator'])
