@@ -22,12 +22,8 @@ Options:
   --fc=<FC>                              Fortran compiler [default: gfortran].
   --extra-fc-flags=<EXTRA_FCFLAGS>       Extra Fortran compiler flags [default: ''].
   --mpi                                  Enable MPI parallelization [default: False].
-  --cc=<CC>                              C compiler [default: gcc].
-  --extra-cc-flags=<EXTRA_CFLAGS>        Extra C compiler flags [default: ''].
-  --cxx=<CXX>                            C++ compiler [default: g++].
-  --extra-cxx-flags=<EXTRA_CXXFLAGS>     Extra C++ compiler flags [default: ''].
-  --int64                                Enable 64bit integers [default: False].
   --coverage                             Enable code coverage [default: False].
+  --add-definitions=<STRING>             Add preprocesor definitions [default: ''].
   --type=<TYPE>                          Set the CMake build type (debug, release, or relwithdeb) [default: release].
   --generator=<STRING>                   Set the CMake build system generator [default: Unix Makefiles].
   --show                                 Show CMake command and exit.
@@ -44,15 +40,11 @@ def gen_cmake_command(options, arguments):
     """
     command = []
     command.append('FC={0}'.format(arguments['--fc']))
-    command.append('CC={0}'.format(arguments['--cc']))
-    command.append('CXX={0}'.format(arguments['--cxx']))
     command.append('%s' % arguments['--cmake-executable'])
     command.append('-DEXTRA_FCFLAGS="{0}"'.format(arguments['--extra-fc-flags']))
     command.append('-DENABLE_MPI=%s' % arguments['--mpi'])
-    command.append('-DEXTRA_CFLAGS="{0}"'.format(arguments['--extra-cc-flags']))
-    command.append('-DEXTRA_CXXFLAGS="{0}"'.format(arguments['--extra-cxx-flags']))
-    command.append('-DENABLE_64BIT_INTEGERS=%s' % arguments['--int64'])
     command.append('-DENABLE_CODE_COVERAGE=%s' % arguments['--coverage'])
+    command.append('-DPREPROCESSOR_DEFINITIONS="%s"' % arguments['--add-definitions'])
     command.append('-DCMAKE_BUILD_TYPE=%s' % arguments['--type'])
     command.append('-G "%s"' % arguments['--generator'])
     if arguments['--cmake-options'] != "''":
