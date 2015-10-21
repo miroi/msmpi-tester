@@ -72,4 +72,5 @@ test_script:
  - cd build
  - mingw32-make VERBOSE=1
  - bin\example.exe
+ - bin\example02.exe
 

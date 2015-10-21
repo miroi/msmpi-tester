@@ -22,6 +22,7 @@ script:
   - cd bin
   - ls -lt
   - exec "mpirun -np 2 ./example"
+  - exec "mpirun -np 2 ./example02"
 
 
 # turn off email notifications

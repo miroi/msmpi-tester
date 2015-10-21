@@ -13,3 +13,4 @@ build:
           make VERBOSE=1 
           ldd bin/example
           mpirun -np 2 bin/example
+          mpirun -np 2 bin/example02
