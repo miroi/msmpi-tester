@@ -8,7 +8,6 @@ install:
   - sudo apt-get install g++ cmake gfortran
     # math libraries
  # - sudo apt-get install libatlas-base-dev libatlas-dev
-  - sudo apt-get install liblapack-dev libopenblas-dev libopenblas-base 
     # MPI
   - sudo apt-get install openmpi-bin libopenmpi-dev
     # PEP8 and py.test
