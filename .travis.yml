@@ -21,7 +21,7 @@ script:
     #  run test (should end with 0)
   - cd bin
   - ls -lt
-  #- exec "mpirun -np 2 ./example"
+  - exec "mpirun -np 2 ./example"
   - exec "mpirun -np 2 ./example02"
 
 
