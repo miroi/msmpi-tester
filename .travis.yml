@@ -13,7 +13,7 @@ install:
     # PEP8 and py.test
   - sudo pip install pytest pep8
 script:
-  - python ./setup --mpi --fc=gfortran 
+  - python ./setup --mpi --fc=mpif90
   - cd build
   - make VERBOSE=1 
     # show dependencies

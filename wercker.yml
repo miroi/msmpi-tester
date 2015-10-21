@@ -8,7 +8,7 @@ build:
     - script:
         name: run setup configuration script
         code: |
-          python ./setup --fc=gfortran  --mpi || true
+          python ./setup --fc=mpif90  --mpi || true
           cd build
           make VERBOSE=1 
           ldd bin/example
