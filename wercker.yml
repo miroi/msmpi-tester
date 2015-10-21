@@ -1,4 +1,4 @@
-box: nodesource/trusty
+box: wrecker/ubuntu
 build:
   steps:
   # Execute the bundle install step, a step provided by wercker
