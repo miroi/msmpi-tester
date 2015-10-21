@@ -10,6 +10,6 @@ build:
         code: |
           python ./setup --fc=mpif90  --mpi
           cd build
-          make VERBOSE=1 
-          mpirun -np 1 bin/example
-          mpirun -np 1 bin/example02
+          make VERBOSE=0
+          mpirun -np 2 bin/example
+          mpirun -np 2 bin/example02
