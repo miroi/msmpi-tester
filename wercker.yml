@@ -1,0 +1,15 @@
+box: nodesource/trusty
+build:
+  steps:
+  # Execute the bundle install step, a step provided by wercker
+    - bundle-install
+    - install-packages:
+        packages: "gfortran cmake libblas-dev liblapack-dev openmpi-bin libopenmpi-dev"
+    - script:
+        name: run setup configuration script
+        code: |
+          python ./setup --fc=gfortran  --mpi || true
+          cd build
+          make VERBOSE=1 
+          ldd bin/example
+          mpirun -np 2 bin/example
